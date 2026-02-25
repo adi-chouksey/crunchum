@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: Arial, sans-serif; padding: 30px; color: #111; max-width: 900px; margin: auto; font-size: 12px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #2c5f2e; padding-bottom: 14px; margin-bottom: 20px; }
+  .company-info { font-size: 11px; color: #555; line-height: 1.7; }
+  .logo-box { width: 120px; height: 60px; border: 1px dashed #aaa; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #aaa; text-align: center; }
+  h1 { font-size: 20px; color: #2c5f2e; margin: 0 0 4px 0; }
+  h2 { font-size: 13px; color: #2c5f2e; margin: 20px 0 8px 0; border-left: 4px solid #2c5f2e; padding-left: 8px; }
+  .product-title { font-size: 15px; font-weight: bold; color: #2c5f2e; margin: 24px 0 4px 0; border-top: 2px solid #2c5f2e; padding-top: 14px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 10px; }
+  th { background-color: #2c5f2e; color: white; padding: 7px 10px; text-align: left; font-size: 11.5px; }
+  td { padding: 6px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f7f7f7; }
+  .bilingual { display: flex; flex-direction: column; gap: 1px; }
+  .lang-en { color: #1a1a1a; }
+  .lang-nl { color: #666; font-style: italic; font-size: 10.5px; }
+  .bold-row td { font-weight: bold; background-color: #eaf2ea; }
+  .sub-row td:first-child, .sub-row td:nth-child(2) { padding-left: 18px; font-style: italic; color: #555; font-weight: normal; }
+  .warning-box { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 14px; font-size: 11px; margin: 16px 0; line-height: 1.7; }
+  .footer { margin-top: 30px; border-top: 1px solid #ccc; padding-top: 12px; font-size: 10px; color: #777; line-height: 1.7; }
+  .sign-block { display: flex; gap: 40px; margin-top: 20px; }
+  .sign-field { flex: 1; border-top: 1px solid #333; padding-top: 6px; font-size: 11px; color: #444; }
+  .badge { display: inline-block; background: #2c5f2e; color: white; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin: 2px 2px 8px 0; }
+  .badge-yellow { background: #f9a825; color: #111; }
+  @media print { body { padding: 15px; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <h1>CRUNCHUM FOODS</h1>
+    <div class="company-info">
+      KVK: 99699001 &nbsp;|&nbsp; BTW: NL869096394B01<br>
+      Meander 841, 1181WN Amstelveen, Netherlands<br>
+      Email: support@crunchum.nl &nbsp;|&nbsp; Phone: +31 6 86 36 01 30<br>
+      Website: www.crunchum.nl
+    </div>
+  </div>
+  <img src="https://iili.io/qKcgWcG.png" style="width:110px;height:110px;object-fit:contain;border-radius:8px;" alt="Crunchum Foods Logo"/>
+</div>
+
+<!-- DOCUMENT INFO -->
+<table style="margin-bottom:20px;">
+  <tr>
+    <th colspan="4">
+      <div class="bilingual">
+        <span class="lang-en">PRODUCT SPECIFICATION SHEET</span>
+        <span class="lang-nl" style="color:#ddd;">PRODUCTSPECIFICATIEBLAD</span>
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <td><b>Document No.</b><br><i style="color:#666;font-size:10.5px;">Documentnummer</i></td><td>PSS-001</td>
+    <td><b>Version / Versie</b></td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>Issue Date</b><br><i style="color:#666;font-size:10.5px;">Uitgiftedatum</i></td><td>25 February 2026</td>
+    <td><b>Next Review</b><br><i style="color:#666;font-size:10.5px;">Volgende herziening</i></td><td>25 February 2027</td>
+  </tr>
+  <tr>
+    <td><b>Prepared by</b><br><i style="color:#666;font-size:10.5px;">Opgesteld door</i></td><td>Aditya Chouksey</td>
+    <td><b>NVWA Registration</b><br><i style="color:#666;font-size:10.5px;">NVWA Registratie</i></td><td>[Your NVWA Number]</td>
+  </tr>
+</table>
+
+<div class="warning-box">
+  ⚠️ <b>Notice / Mededeling:</b> Nutritional values in this document are indicative, sourced from USDA FoodData Central and RIVM NEVO database, and are pending validation by accredited laboratory analysis (Eurofins). Final certified values will be issued upon receipt of laboratory results. Within EU ±20% tolerance (Reg. 1169/2011).<br>
+  <i>Voedingswaarden in dit document zijn indicatief, afkomstig van USDA FoodData Central en RIVM NEVO, en wachten op validatie door geaccrediteerd laboratoriumonderzoek (Eurofins). Definitieve gecertificeerde waarden worden verstrekt na ontvangst van de laboratoriumresultaten.</i>
+</div>
+
+<!-- =================== PRODUCT 1: BLUEBERRIES =================== -->
+<div class="product-title">🫐 Product 1 – Freeze-Dried Blueberries / Vriesdroge Bosbessen</div>
+
+<h2>1. General Information / Algemene Informatie</h2>
+<table>
+  <tr>
+    <td width="35%"><div class="bilingual"><span class="lang-en"><b>Product Name</b></span><span class="lang-nl">Productnaam</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Freeze-Dried Blueberries</span><span class="lang-nl">Vriesdroge Bosbessen</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Ingredients</b></span><span class="lang-nl">Ingrediënten</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Blueberries 100%</span><span class="lang-nl">Bosbessen 100%</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Raw Material Source</b></span><span class="lang-nl">Grondstofbron</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Fresh blueberries purchased from Makro / Sligro, Netherlands</span><span class="lang-nl">Verse bosbessen gekocht bij Makro / Sligro, Nederland</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Country of Origin</b></span><span class="lang-nl">Land van Herkomst</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">[To be confirmed per batch – check Makro/Sligro label]</span><span class="lang-nl">[Per batch bevestigen – zie Makro/Sligro etiket]</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Processing Location</b></span><span class="lang-nl">Verwerkingslocatie</span></div></td>
+    <td>[Your address], Netherlands</td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Processing Method</b></span><span class="lang-nl">Verwerkingsmethode</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Washed, dried, freeze-dried, packed</span><span class="lang-nl">Gewassen, gedroogd, vriesgedroogd, verpakt</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Shelf Life</b></span><span class="lang-nl">Houdbaarheid</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">12–24 months sealed / 3 months after opening (store cool & dry)</span><span class="lang-nl">12–24 maanden gesloten / 3 maanden na opening (koel en droog bewaren)</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Net Weight Options</b></span><span class="lang-nl">Netto gewicht opties</span></div></td>
+    <td>[e.g., 25g / 50g / 100g]</td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Packaging Type</b></span><span class="lang-nl">Verpakkingstype</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Sealed resealable pouch / food-grade moisture barrier bag</span><span class="lang-nl">Afgesloten hersluitbare zak / voedselveilige vochtbarrièrezak</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Storage Conditions</b></span><span class="lang-nl">Bewaaromstandigheden</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Store in a cool, dry place below 25°C, away from direct sunlight</span><span class="lang-nl">Bewaar op een koele, droge plaats onder 25°C, uit direct zonlicht</span></div></td>
+  </tr>
+  <tr>
+    <td><div class="bilingual"><span class="lang-en"><b>Intended Use</b></span><span class="lang-nl">Beoogd gebruik</span></div></td>
+    <td><div class="bilingual"><span class="lang-en">Ready to eat. Suitable for all consumers including children.</span><span class="lang-nl">Eetklaar. Geschikt voor alle consumenten, inclusief kinderen.</span></div></td>
+  </tr>
+</table>
+
+<h2>2. Physical & Quality Characteristics / Fysieke en Kwaliteitskenmerken</h2>
+<table>
+  <tr><th>Parameter (EN)</th><th>Parameter (NL)</th><th>Specification / Specificatie</th></tr>
+  <tr><td>Appearance</td><td>Uiterlijk</td><td>Whole or halved blueberries, light-purple to deep blue, dry and crisp</td></tr>
+  <tr><td>Texture</td><td>Textuur</td><td>Crisp, snaps when broken. No bending or soft spots.</td></tr>
+  <tr><td>Colour</td><td>Kleur</td><td>Light purple to deep blue / violet</td></tr>
+  <tr><td>Taste & Odour</td><td>Smaak & Geur</td><td>Natural blueberry flavour, sweet. No off-odours.</td></tr>
+  <tr><td>Moisture Content</td><td>Vochtgehalte</td><td>≤ 3% (snap test + moisture meter)</td></tr>
+  <tr><td>Water Activity (Aw)</td><td>Wateractiviteit (Aw)</td><td>≤ 0.60 (target) — pending Eurofins validation</td></tr>
+  <tr><td>Foreign Matter</td><td>Vreemde deeltjes</td><td>None. Free from stems, leaves, seeds, insects.</td></tr>
+</table>
+
+<h2>3. Allergen Information / Allergeneninformatie</h2>
+<table>
+  <tr><th>Allergen (EN)</th><th>Allergeen (NL)</th><th>Status</th></tr>
+  <tr><td>Gluten</td><td>Gluten</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Nuts</td><td>Noten</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Milk</td><td>Melk</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Eggs</td><td>Eieren</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Soy</td><td>Soja</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Cross-contamination</td><td>Kruiscontaminatie</td><td>May contain traces of other fruits processed in same facility / Kan sporen bevatten van andere vruchten die in dezelfde ruimte zijn verwerkt</td></tr>
+</table>
+
+<h2>4. Indicative Nutritional Values / Indicatieve Voedingswaarden (per 100g)</h2>
+<table>
+  <tr>
+    <th>Nutrient / Voedingsstof</th>
+    <th>Per 100g</th>
+    <th>% RI*</th>
+    <th>Source / Bron</th>
+  </tr>
+  <tr class="bold-row"><td>Energy / Energie</td><td>1,494 kJ / 357 kcal</td><td>18%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="bold-row"><td>Fat / Vetten</td><td>2.1 g</td><td>3%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="sub-row"><td>of which saturates / waarvan verzadigd</td><td>0.2 g</td><td>1%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="bold-row"><td>Carbohydrate / Koolhydraten</td><td>79.5 g</td><td>31%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="sub-row"><td>of which sugars / waarvan suikers</td><td>57.2 g</td><td>64%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="bold-row"><td>Fibre / Vezels</td><td>14.1 g</td><td>—</td><td>RIVM NEVO</td></tr>
+  <tr class="bold-row"><td>Protein / Eiwitten</td><td>3.9 g</td><td>8%</td><td>USDA FDC ID: 786697</td></tr>
+  <tr class="bold-row"><td>Salt / Zout</td><td>0.01 g</td><td>0%</td><td>USDA FDC ID: 786697</td></tr>
+</table>
+<p style="font-size:10px;color:#777;">*RI = Reference Intake 8,400 kJ / 2,000 kcal. ⚠️ Indicative values only — pending Eurofins accredited lab analysis. / Indicatieve waarden — in afwachting van Eurofins geaccrediteerd laboratoriumonderzoek.</p>
+
+<!-- =================== PRODUCT 2: STRAWBERRIES =================== -->
+<div class="product-title">🍓 Product 2 – Freeze-Dried Strawberries / Vriesdroge Aardbeien</div>
+
+<h2>1. General Information / Algemene Informatie</h2>
+<table>
+  <tr><td width="35%"><div class="bilingual"><span class="lang-en"><b>Product Name</b></span><span class="lang-nl">Productnaam</span></div></td><td><div class="bilingual"><span class="lang-en">Freeze-Dried Strawberries</span><span class="lang-nl">Vriesdroge Aardbeien</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Ingredients</b></span><span class="lang-nl">Ingrediënten</span></div></td><td><div class="bilingual"><span class="lang-en">Strawberries 100%</span><span class="lang-nl">Aardbeien 100%</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Raw Material Source</b></span><span class="lang-nl">Grondstofbron</span></div></td><td><div class="bilingual"><span class="lang-en">Fresh strawberries purchased from Makro / Sligro, Netherlands</span><span class="lang-nl">Verse aardbeien gekocht bij Makro / Sligro, Nederland</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Country of Origin</b></span><span class="lang-nl">Land van Herkomst</span></div></td><td><div class="bilingual"><span class="lang-en">[To be confirmed per batch]</span><span class="lang-nl">[Per batch bevestigen]</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Shelf Life</b></span><span class="lang-nl">Houdbaarheid</span></div></td><td><div class="bilingual"><span class="lang-en">12–24 months sealed / 3 months after opening</span><span class="lang-nl">12–24 maanden gesloten / 3 maanden na opening</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Storage Conditions</b></span><span class="lang-nl">Bewaaromstandigheden</span></div></td><td><div class="bilingual"><span class="lang-en">Cool, dry place below 25°C, away from direct sunlight</span><span class="lang-nl">Koel en droog onder 25°C, uit direct zonlicht</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Intended Use</b></span><span class="lang-nl">Beoogd gebruik</span></div></td><td><div class="bilingual"><span class="lang-en">Ready to eat. Suitable for all consumers.</span><span class="lang-nl">Eetklaar. Geschikt voor alle consumenten.</span></div></td></tr>
+</table>
+
+<h2>2. Physical & Quality Characteristics / Fysieke en Kwaliteitskenmerken</h2>
+<table>
+  <tr><th>Parameter (EN)</th><th>Parameter (NL)</th><th>Specification / Specificatie</th></tr>
+  <tr><td>Appearance</td><td>Uiterlijk</td><td>Whole, halved or sliced strawberries, bright red, dry and crisp</td></tr>
+  <tr><td>Texture</td><td>Textuur</td><td>Crisp, snaps when broken. No bending or soft spots.</td></tr>
+  <tr><td>Colour</td><td>Kleur</td><td>Bright to deep red</td></tr>
+  <tr><td>Taste & Odour</td><td>Smaak & Geur</td><td>Natural strawberry flavour, sweet. No off-odours.</td></tr>
+  <tr><td>Moisture Content</td><td>Vochtgehalte</td><td>≤ 3%</td></tr>
+  <tr><td>Water Activity (Aw)</td><td>Wateractiviteit (Aw)</td><td>≤ 0.60 — pending Eurofins validation</td></tr>
+  <tr><td>Foreign Matter</td><td>Vreemde deeltjes</td><td>None. Free from stems, leaves, seeds, insects.</td></tr>
+</table>
+
+<h2>3. Allergen Information / Allergeneninformatie</h2>
+<table>
+  <tr><th>Allergen (EN)</th><th>Allergeen (NL)</th><th>Status</th></tr>
+  <tr><td>All 14 EU major allergens</td><td>Alle 14 EU grote allergenen</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Cross-contamination</td><td>Kruiscontaminatie</td><td>May contain traces of other fruits / Kan sporen bevatten van andere vruchten</td></tr>
+</table>
+
+<h2>4. Indicative Nutritional Values / Indicatieve Voedingswaarden (per 100g)</h2>
+<table>
+  <tr><th>Nutrient / Voedingsstof</th><th>Per 100g</th><th>% RI*</th><th>Source / Bron</th></tr>
+  <tr class="bold-row"><td>Energy / Energie</td><td>1,360 kJ / 325 kcal</td><td>16%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="bold-row"><td>Fat / Vetten</td><td>1.4 g</td><td>2%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="sub-row"><td>of which saturates / waarvan verzadigd</td><td>0.1 g</td><td>1%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="bold-row"><td>Carbohydrate / Koolhydraten</td><td>72.0 g</td><td>28%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="sub-row"><td>of which sugars / waarvan suikers</td><td>58.0 g</td><td>64%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="bold-row"><td>Fibre / Vezels</td><td>13.0 g</td><td>—</td><td>RIVM NEVO</td></tr>
+  <tr class="bold-row"><td>Protein / Eiwitten</td><td>5.4 g</td><td>11%</td><td>USDA FDC ID: 167762</td></tr>
+  <tr class="bold-row"><td>Salt / Zout</td><td>0.01 g</td><td>0%</td><td>USDA FDC ID: 167762</td></tr>
+</table>
+<p style="font-size:10px;color:#777;">*RI = Reference Intake 8,400 kJ / 2,000 kcal. ⚠️ Indicative values only — pending Eurofins lab analysis.</p>
+
+<!-- =================== PRODUCT 3: APPLES =================== -->
+<div class="product-title">🍎 Product 3 – Freeze-Dried Apples / Vriesdroge Appels</div>
+
+<h2>1. General Information / Algemene Informatie</h2>
+<table>
+  <tr><td width="35%"><div class="bilingual"><span class="lang-en"><b>Product Name</b></span><span class="lang-nl">Productnaam</span></div></td><td><div class="bilingual"><span class="lang-en">Freeze-Dried Apples</span><span class="lang-nl">Vriesdroge Appels</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Ingredients</b></span><span class="lang-nl">Ingrediënten</span></div></td><td><div class="bilingual"><span class="lang-en">Apples 100%</span><span class="lang-nl">Appels 100%</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Raw Material Source</b></span><span class="lang-nl">Grondstofbron</span></div></td><td><div class="bilingual"><span class="lang-en">Fresh apples purchased from Makro / Sligro, Netherlands</span><span class="lang-nl">Verse appels gekocht bij Makro / Sligro, Nederland</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Country of Origin</b></span><span class="lang-nl">Land van Herkomst</span></div></td><td><div class="bilingual"><span class="lang-en">[To be confirmed per batch]</span><span class="lang-nl">[Per batch bevestigen]</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Shelf Life</b></span><span class="lang-nl">Houdbaarheid</span></div></td><td><div class="bilingual"><span class="lang-en">12–24 months sealed / 3 months after opening</span><span class="lang-nl">12–24 maanden gesloten / 3 maanden na opening</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Storage Conditions</b></span><span class="lang-nl">Bewaaromstandigheden</span></div></td><td><div class="bilingual"><span class="lang-en">Cool, dry place below 25°C, away from direct sunlight</span><span class="lang-nl">Koel en droog onder 25°C, uit direct zonlicht</span></div></td></tr>
+  <tr><td><div class="bilingual"><span class="lang-en"><b>Intended Use</b></span><span class="lang-nl">Beoogd gebruik</span></div></td><td><div class="bilingual"><span class="lang-en">Ready to eat. Suitable for all consumers.</span><span class="lang-nl">Eetklaar. Geschikt voor alle consumenten.</span></div></td></tr>
+</table>
+
+<h2>2. Physical & Quality Characteristics / Fysieke en Kwaliteitskenmerken</h2>
+<table>
+  <tr><th>Parameter (EN)</th><th>Parameter (NL)</th><th>Specification / Specificatie</th></tr>
+  <tr><td>Appearance</td><td>Uiterlijk</td><td>Sliced apple pieces, pale cream to light yellow, dry and crisp</td></tr>
+  <tr><td>Texture</td><td>Textuur</td><td>Crisp, snaps when broken. No bending or soft spots.</td></tr>
+  <tr><td>Colour</td><td>Kleur</td><td>Pale cream to light yellow (variety dependent)</td></tr>
+  <tr><td>Taste & Odour</td><td>Smaak & Geur</td><td>Natural apple flavour, sweet. No off-odours.</td></tr>
+  <tr><td>Moisture Content</td><td>Vochtgehalte</td><td>≤ 3%</td></tr>
+  <tr><td>Water Activity (Aw)</td><td>Wateractiviteit (Aw)</td><td>≤ 0.60 — pending Eurofins validation</td></tr>
+  <tr><td>Foreign Matter</td><td>Vreemde deeltjes</td><td>None. Free from seeds, core, stems, insects.</td></tr>
+</table>
+
+<h2>3. Allergen Information / Allergeneninformatie</h2>
+<table>
+  <tr><th>Allergen (EN)</th><th>Allergeen (NL)</th><th>Status</th></tr>
+  <tr><td>All 14 EU major allergens</td><td>Alle 14 EU grote allergenen</td><td>Not present / Niet aanwezig</td></tr>
+  <tr><td>Cross-contamination</td><td>Kruiscontaminatie</td><td>May contain traces of other fruits / Kan sporen bevatten van andere vruchten</td></tr>
+</table>
+
+<h2>4. Indicative Nutritional Values / Indicatieve Voedingswaarden (per 100g)</h2>
+<table>
+  <tr><th>Nutrient / Voedingsstof</th><th>Per 100g</th><th>% RI*</th><th>Source / Bron</th></tr>
+  <tr class="bold-row"><td>Energy / Energie</td><td>1,411 kJ / 337 kcal</td><td>17%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="bold-row"><td>Fat / Vetten</td><td>0.6 g</td><td>1%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="sub-row"><td>of which saturates / waarvan verzadigd</td><td>0.1 g</td><td>1%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="bold-row"><td>Carbohydrate / Koolhydraten</td><td>82.0 g</td><td>32%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="sub-row"><td>of which sugars / waarvan suikers</td><td>72.0 g</td><td>80%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="bold-row"><td>Fibre / Vezels</td><td>9.6 g</td><td>—</td><td>RIVM NEVO</td></tr>
+  <tr class="bold-row"><td>Protein / Eiwitten</td><td>1.1 g</td><td>2%</td><td>USDA FDC ID: 168203</td></tr>
+  <tr class="bold-row"><td>Salt / Zout</td><td>0.02 g</td><td>0%</td><td>USDA FDC ID: 168203</td></tr>
+</table>
+<p style="font-size:10px;color:#777;">*RI = Reference Intake 8,400 kJ / 2,000 kcal. ⚠️ Indicative values only — pending Eurofins lab analysis.</p>
+
+<!-- FOOTER & SIGN-OFF -->
+<div class="footer">
+  <p><b>Document Status / Documentstatus:</b> &nbsp;
+    <span class="badge badge-yellow">⚠️ INDICATIVE – PRE-LAB / INDICATIEF – PRE-LAB</span>
+    <span class="badge">Version 1.0</span>
+  </p>
+  <p>This document is issued in good faith based on available food composition data. It does not replace accredited laboratory analysis. The producer accepts no liability for variations between indicative and actual values within the EU ±20% regulatory tolerance.<br>
+  <i>Dit document is te goeder trouw opgesteld op basis van beschikbare voedingssamenstellingsgegevens. Het vervangt geen geaccrediteerd laboratoriumonderzoek.</i></p>
+
+  <div class="sign-block">
+    <div class="sign-field">
+      Prepared by / Opgesteld door:<br><br><br>
+      Name / Naam: Aditya Chouksey<br>
+      Date / Datum: 25 February 2026
+    </div>
+    <div class="sign-field">
+      Updated with lab results / Bijgewerkt met labresultaten:<br><br><br>
+      Date / Datum: ___________________<br>
+      Eurofins Report No.: ___________________
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
