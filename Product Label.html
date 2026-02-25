@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f0f2f5; font-family: Arial, sans-serif; }
+
+  /* ── CONTROL PANEL ── */
+  .control-panel {
+    background: #1a2a4a;
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .control-panel h2 { width: 100%; text-align: center; color: #f5c842; font-size: 15px; letter-spacing: 1px; margin-bottom: 4px; }
+  .product-block { background: rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 18px; min-width: 220px; border: 1px solid rgba(255,255,255,0.12); }
+  .product-block h3 { color: #7ec88a; font-size: 12px; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .field-group { margin-bottom: 8px; }
+  .field-group label { font-size: 10px; color: rgba(255,255,255,0.6); display: block; margin-bottom: 3px; }
+  .field-group input {
+    width: 100%; padding: 5px 8px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1); color: #fff; font-size: 11px;
+  }
+  .field-group input::placeholder { color: rgba(255,255,255,0.35); }
+  .field-group input:focus { outline: none; border-color: #f5c842; background: rgba(255,255,255,0.15); }
+  .origin-note { font-size: 9px; color: rgba(255,255,255,0.4); font-style: italic; margin-top: 3px; }
+
+  .print-btn {
+    background: #f5c842; color: #1a2a4a; border: none; padding: 10px 28px;
+    border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer;
+    letter-spacing: 0.5px; align-self: center; margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .print-btn:hover { background: #ffd700; }
+
+  /* ── LABELS AREA ── */
+  .labels-area {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    justify-content: center; padding: 30px;
+  }
+
+  /* Each label 378px × 567px = 100mm × 150mm @96dpi */
+  .label {
+    width: 378px; height: 567px;
+    background: #1a2a4a; border-radius: 10px;
+    overflow: hidden; display: flex; flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .label-header {
+    padding: 10px 14px 8px; display: flex;
+    align-items: center; justify-content: space-between;
+    border-bottom: 2px solid rgba(255,255,255,0.12);
+  }
+  .logo { height: 44px; width: auto; }
+  .product-name .en { font-size: 13px; font-weight: bold; color: #f5c842; text-align: right; }
+  .product-name .nl { font-size: 9.5px; color: rgba(255,255,255,0.55); font-style: italic; text-align: right; }
+  .fruit-banner {
+    padding: 6px 14px; display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .fruit-emoji { font-size: 26px; }
+  .fruit-info .tagline { font-size: 9px; color: rgba(255,255,255,0.65); }
+  .fruit-info .slogan { font-size: 8.5px; color: #7ec88a; font-style: italic; }
+  .badges { display: flex; flex-direction: column; gap: 3px; align-items: flex-end; margin-left: auto; }
+  .badge { font-size: 7px; padding: 2px 5px; border-radius: 6px; font-weight: bold; }
+  .badge-green { background: #2c7a3e; color: #fff; }
+  .badge-yellow { background: #f5c842; color: #1a2a4a; }
+
+  .section-title {
+    font-size: 7.5px; font-weight: bold; letter-spacing: 1px;
+    text-transform: uppercase; color: #f5c842;
+    padding: 5px 14px 2px;
+  }
+  .ingredients-box {
+    margin: 0 14px 5px; background: rgba(255,255,255,0.05);
+    border-radius: 5px; padding: 5px 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .ing-en { font-size: 11px; color: #fff; font-weight: bold; }
+  .ing-nl { font-size: 9px; color: rgba(255,255,255,0.5); font-style: italic; }
+  .ing-pct { font-size: 14px; font-weight: bold; color: #7ec88a; }
+
+  .nutrition-box { margin: 0 14px; border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); flex: 1; }
+  .nut-header {
+    background: rgba(255,255,255,0.1);
+    display: grid; grid-template-columns: 1fr 72px 38px;
+    padding: 4px 8px; border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .nut-header span { font-size: 7px; font-weight: bold; color: #f5c842; text-transform: uppercase; letter-spacing: 0.4px; }
+  .nut-header span:nth-child(2), .nut-header span:nth-child(3) { text-align: right; }
+  .nut-row {
+    display: grid; grid-template-columns: 1fr 72px 38px;
+    padding: 2.5px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+  }
+  .nut-row:last-child { border-bottom: none; }
+  .nut-row.main { background: rgba(255,255,255,0.03); }
+  .n-en { font-size: 8.5px; color: #fff; font-weight: bold; }
+  .n-nl { font-size: 7px; color: rgba(255,255,255,0.45); font-style: italic; }
+  .nut-row.sub .n-en { font-size: 8px; color: rgba(255,255,255,0.7); font-weight: normal; padding-left: 8px; }
+  .nut-row.sub .n-nl { padding-left: 8px; }
+  .nval { font-size: 8.5px; color: #fff; text-align: right; font-weight: bold; }
+  .nut-row.sub .nval { font-weight: normal; color: rgba(255,255,255,0.7); }
+  .nri { font-size: 8px; color: #7ec88a; text-align: right; font-weight: bold; }
+
+  .source-note { font-size: 6px; color: rgba(255,255,255,0.3); padding: 2px 14px; font-style: italic; }
+
+  .label-footer {
+    padding: 5px 14px 7px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 3px;
+  }
+  .footer-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
+  .footer-lines { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .fl { font-size: 7px; color: rgba(255,255,255,0.5); }
+  .fl span { color: rgba(255,255,255,0.85); font-weight: bold; }
+  .storage-icons { display: flex; gap: 3px; }
+  .icon-badge {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 4px; padding: 2px 4px; font-size: 6.5px;
+    color: rgba(255,255,255,0.65); text-align: center;
+  }
+  .icon-badge .ico { font-size: 10px; display: block; }
+
+  /* ── PRINT ── */
+  @media print {
+    .control-panel { display: none !important; }
+    body { background: white; }
+    .labels-area { padding: 5mm; gap: 8mm; }
+    .label { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    @page { size: A4; margin: 8mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ CONTROL PANEL ══════════ -->
+<div class="control-panel">
+  <h2>🖨️ CRUNCHUM FOODS — Label Generator</h2>
+
+  <!-- Blueberries -->
+  <div class="product-block">
+    <h3>🫐 Blueberries / Bosbessen</h3>
+    <div class="field-group">
+      <label>Net Weight (e.g. 50g)</label>
+      <input type="text" id="bb-weight" placeholder="e.g. 50g" oninput="update('bb')">
+    </div>
+    <div class="field-group">
+      <label>Best Before (DD/MM/YYYY)</label>
+      <input type="text" id="bb-bbd" placeholder="e.g. 25/02/2027" oninput="update('bb')">
+    </div>
+    <div class="field-group">
+      <label>Lot / Batch Number</label>
+      <input type="text" id="bb-lot" placeholder="e.g. BB-20260225" oninput="update('bb')">
+    </div>
+    <div class="field-group">
+      <label>Country of Origin</label>
+      <input type="text" id="bb-origin" placeholder="e.g. Spain" oninput="update('bb')">
+      <div class="origin-note">Check Makro/Sligro packaging</div>
+    </div>
+  </div>
+
+  <!-- Strawberries -->
+  <div class="product-block">
+    <h3>🍓 Strawberries / Aardbeien</h3>
+    <div class="field-group">
+      <label>Net Weight (e.g. 50g)</label>
+      <input type="text" id="sb-weight" placeholder="e.g. 50g" oninput="update('sb')">
+    </div>
+    <div class="field-group">
+      <label>Best Before (DD/MM/YYYY)</label>
+      <input type="text" id="sb-bbd" placeholder="e.g. 25/02/2027" oninput="update('sb')">
+    </div>
+    <div class="field-group">
+      <label>Lot / Batch Number</label>
+      <input type="text" id="sb-lot" placeholder="e.g. SB-20260225" oninput="update('sb')">
+    </div>
+    <div class="field-group">
+      <label>Country of Origin</label>
+      <input type="text" id="sb-origin" placeholder="e.g. Netherlands" oninput="update('sb')">
+      <div class="origin-note">Check Makro/Sligro packaging</div>
+    </div>
+  </div>
+
+  <!-- Apples -->
+  <div class="product-block">
+    <h3>🍎 Apples / Appels</h3>
+    <div class="field-group">
+      <label>Net Weight (e.g. 50g)</label>
+      <input type="text" id="ap-weight" placeholder="e.g. 50g" oninput="update('ap')">
+    </div>
+    <div class="field-group">
+      <label>Best Before (DD/MM/YYYY)</label>
+      <input type="text" id="ap-bbd" placeholder="e.g. 25/02/2027" oninput="update('ap')">
+    </div>
+    <div class="field-group">
+      <label>Lot / Batch Number</label>
+      <input type="text" id="ap-lot" placeholder="e.g. AP-20260225" oninput="update('ap')">
+    </div>
+    <div class="field-group">
+      <label>Country of Origin</label>
+      <input type="text" id="ap-origin" placeholder="e.g. France" oninput="update('ap')">
+      <div class="origin-note">Check Makro/Sligro packaging</div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨️ Print All Labels</button>
+</div>
+
+<!-- ══════════ LABELS ══════════ -->
+<div class="labels-area">
+
+  <!-- BLUEBERRIES -->
+  <div class="label" id="label-bb">
+    <div class="label-header">
+      <img src="https://iili.io/qKcgWcG.png" class="logo" alt="Crunchum"/>
+      <div class="product-name">
+        <div class="en">Freeze-Dried Blueberries</div>
+        <div class="nl">Vriesdroge Bosbessen</div>
+      </div>
+    </div>
+    <div class="fruit-banner">
+      <div class="fruit-emoji">🫐</div>
+      <div class="fruit-info">
+        <div class="tagline">100% Natural · No Preservatives · No Added Sugar</div>
+        <div class="slogan">No Preservatives. No Compromise.</div>
+      </div>
+      <div class="badges">
+        <div class="badge badge-green">VEGAN</div>
+        <div class="badge badge-yellow">GLUTEN FREE</div>
+      </div>
+    </div>
+    <div class="section-title">Ingredients / Ingrediënten</div>
+    <div class="ingredients-box">
+      <div><div class="ing-en">Blueberries</div><div class="ing-nl">Bosbessen</div></div>
+      <div class="ing-pct">100%</div>
+    </div>
+    <div class="section-title">Nutrition Declaration / Voedingswaardeverklaring (per 100g)</div>
+    <div class="nutrition-box">
+      <div class="nut-header"><span>Nutrient / Voedingsstof</span><span>Per 100g</span><span>%RI*</span></div>
+      <div class="nut-row main"><div><div class="n-en">Energy / Energie</div></div><div class="nval">1494kJ/357kcal</div><div class="nri">18%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fat / Vetten</div></div><div class="nval">2.1g</div><div class="nri">3%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which saturates</div><div class="n-nl">waarvan verzadigd</div></div><div class="nval">0.2g</div><div class="nri">1%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Carbohydrate / Koolhydraten</div></div><div class="nval">79.5g</div><div class="nri">31%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which sugars</div><div class="n-nl">waarvan suikers</div></div><div class="nval">57.2g</div><div class="nri">64%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fibre / Vezels</div></div><div class="nval">14.1g</div><div class="nri">—</div></div>
+      <div class="nut-row main"><div><div class="n-en">Protein / Eiwitten</div></div><div class="nval">3.9g</div><div class="nri">8%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Salt / Zout</div></div><div class="nval">0.01g</div><div class="nri">0%</div></div>
+    </div>
+    <div class="source-note">*RI = 8400kJ/2000kcal. Values indicative (USDA/NEVO). To be replaced with authorised lab report once available.</div>
+    <div class="label-footer">
+      <div class="footer-row">
+        <div class="footer-lines">
+          <div class="fl">🏭 <span>Crunchum Foods VOF</span> · Meander 841, 1181 Amstelveen, NL</div>
+          <div class="fl">🌐 www.crunchum.nl · 📧 support@crunchum.nl</div>
+          <div class="fl">📦 Net Weight / Netto Gewicht: <span id="bb-w-lbl">[ __ ]</span> g &nbsp;|&nbsp; Origin / Herkomst: <span id="bb-o-lbl">[ __ ]</span></div>
+          <div class="fl">📅 Best Before / THT: <span id="bb-b-lbl">[ __ ]</span> &nbsp;|&nbsp; Lot: <span id="bb-l-lbl">[ __ ]</span></div>
+        </div>
+        <div class="storage-icons">
+          <div class="icon-badge"><span class="ico">🌡️</span>&lt;25°C</div>
+          <div class="icon-badge"><span class="ico">💧</span>Dry</div>
+          <div class="icon-badge"><span class="ico">☀️</span>No Sun</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRAWBERRIES -->
+  <div class="label" id="label-sb">
+    <div class="label-header">
+      <img src="https://iili.io/qKcgWcG.png" class="logo" alt="Crunchum"/>
+      <div class="product-name">
+        <div class="en">Freeze-Dried Strawberries</div>
+        <div class="nl">Vriesdroge Aardbeien</div>
+      </div>
+    </div>
+    <div class="fruit-banner">
+      <div class="fruit-emoji">🍓</div>
+      <div class="fruit-info">
+        <div class="tagline">100% Natural · No Preservatives · No Added Sugar</div>
+        <div class="slogan">No Preservatives. No Compromise.</div>
+      </div>
+      <div class="badges">
+        <div class="badge badge-green">VEGAN</div>
+        <div class="badge badge-yellow">GLUTEN FREE</div>
+      </div>
+    </div>
+    <div class="section-title">Ingredients / Ingrediënten</div>
+    <div class="ingredients-box">
+      <div><div class="ing-en">Strawberries</div><div class="ing-nl">Aardbeien</div></div>
+      <div class="ing-pct">100%</div>
+    </div>
+    <div class="section-title">Nutrition Declaration / Voedingswaardeverklaring (per 100g)</div>
+    <div class="nutrition-box">
+      <div class="nut-header"><span>Nutrient / Voedingsstof</span><span>Per 100g</span><span>%RI*</span></div>
+      <div class="nut-row main"><div><div class="n-en">Energy / Energie</div></div><div class="nval">1360kJ/325kcal</div><div class="nri">16%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fat / Vetten</div></div><div class="nval">1.4g</div><div class="nri">2%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which saturates</div><div class="n-nl">waarvan verzadigd</div></div><div class="nval">0.1g</div><div class="nri">1%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Carbohydrate / Koolhydraten</div></div><div class="nval">72.0g</div><div class="nri">28%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which sugars</div><div class="n-nl">waarvan suikers</div></div><div class="nval">58.0g</div><div class="nri">64%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fibre / Vezels</div></div><div class="nval">13.0g</div><div class="nri">—</div></div>
+      <div class="nut-row main"><div><div class="n-en">Protein / Eiwitten</div></div><div class="nval">5.4g</div><div class="nri">11%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Salt / Zout</div></div><div class="nval">0.01g</div><div class="nri">0%</div></div>
+    </div>
+    <div class="source-note">*RI = 8400kJ/2000kcal. Values indicative (USDA/NEVO). To be replaced with authorised lab report once available.</div>
+    <div class="label-footer">
+      <div class="footer-row">
+        <div class="footer-lines">
+          <div class="fl">🏭 <span>Crunchum Foods VOF</span> · Meander 841, 1181 Amstelveen, NL</div>
+          <div class="fl">🌐 www.crunchum.nl · 📧 support@crunchum.nl</div>
+          <div class="fl">📦 Net Weight / Netto Gewicht: <span id="sb-w-lbl">[ __ ]</span> g &nbsp;|&nbsp; Origin / Herkomst: <span id="sb-o-lbl">[ __ ]</span></div>
+          <div class="fl">📅 Best Before / THT: <span id="sb-b-lbl">[ __ ]</span> &nbsp;|&nbsp; Lot: <span id="sb-l-lbl">[ __ ]</span></div>
+        </div>
+        <div class="storage-icons">
+          <div class="icon-badge"><span class="ico">🌡️</span>&lt;25°C</div>
+          <div class="icon-badge"><span class="ico">💧</span>Dry</div>
+          <div class="icon-badge"><span class="ico">☀️</span>No Sun</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLES -->
+  <div class="label" id="label-ap">
+    <div class="label-header">
+      <img src="https://iili.io/qKcgWcG.png" class="logo" alt="Crunchum"/>
+      <div class="product-name">
+        <div class="en">Freeze-Dried Apples</div>
+        <div class="nl">Vriesdroge Appels</div>
+      </div>
+    </div>
+    <div class="fruit-banner">
+      <div class="fruit-emoji">🍎</div>
+      <div class="fruit-info">
+        <div class="tagline">100% Natural · No Preservatives · No Added Sugar</div>
+        <div class="slogan">No Preservatives. No Compromise.</div>
+      </div>
+      <div class="badges">
+        <div class="badge badge-green">VEGAN</div>
+        <div class="badge badge-yellow">GLUTEN FREE</div>
+      </div>
+    </div>
+    <div class="section-title">Ingredients / Ingrediënten</div>
+    <div class="ingredients-box">
+      <div><div class="ing-en">Apples</div><div class="ing-nl">Appels</div></div>
+      <div class="ing-pct">100%</div>
+    </div>
+    <div class="section-title">Nutrition Declaration / Voedingswaardeverklaring (per 100g)</div>
+    <div class="nutrition-box">
+      <div class="nut-header"><span>Nutrient / Voedingsstof</span><span>Per 100g</span><span>%RI*</span></div>
+      <div class="nut-row main"><div><div class="n-en">Energy / Energie</div></div><div class="nval">1411kJ/337kcal</div><div class="nri">17%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fat / Vetten</div></div><div class="nval">0.6g</div><div class="nri">1%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which saturates</div><div class="n-nl">waarvan verzadigd</div></div><div class="nval">0.1g</div><div class="nri">1%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Carbohydrate / Koolhydraten</div></div><div class="nval">82.0g</div><div class="nri">32%</div></div>
+      <div class="nut-row sub"><div><div class="n-en">of which sugars</div><div class="n-nl">waarvan suikers</div></div><div class="nval">72.0g</div><div class="nri">80%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Fibre / Vezels</div></div><div class="nval">9.6g</div><div class="nri">—</div></div>
+      <div class="nut-row main"><div><div class="n-en">Protein / Eiwitten</div></div><div class="nval">1.1g</div><div class="nri">2%</div></div>
+      <div class="nut-row main"><div><div class="n-en">Salt / Zout</div></div><div class="nval">0.02g</div><div class="nri">0%</div></div>
+    </div>
+    <div class="source-note">*RI = 8400kJ/2000kcal. Values indicative (USDA/NEVO). To be replaced with authorised lab report once available.</div>
+    <div class="label-footer">
+      <div class="footer-row">
+        <div class="footer-lines">
+          <div class="fl">🏭 <span>Crunchum Foods VOF</span> · Meander 841, 1181 Amstelveen, NL</div>
+          <div class="fl">🌐 www.crunchum.nl · 📧 support@crunchum.nl</div>
+          <div class="fl">📦 Net Weight / Netto Gewicht: <span id="ap-w-lbl">[ __ ]</span> g &nbsp;|&nbsp; Origin / Herkomst: <span id="ap-o-lbl">[ __ ]</span></div>
+          <div class="fl">📅 Best Before / THT: <span id="ap-b-lbl">[ __ ]</span> &nbsp;|&nbsp; Lot: <span id="ap-l-lbl">[ __ ]</span></div>
+        </div>
+        <div class="storage-icons">
+          <div class="icon-badge"><span class="ico">🌡️</span>&lt;25°C</div>
+          <div class="icon-badge"><span class="ico">💧</span>Dry</div>
+          <div class="icon-badge"><span class="ico">☀️</span>No Sun</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function update(p) {
+    const w = document.getElementById(p+'-weight').value || '[ __ ]';
+    const b = document.getElementById(p+'-bbd').value   || '[ __ ]';
+    const l = document.getElementById(p+'-lot').value   || '[ __ ]';
+    const o = document.getElementById(p+'-origin').value|| '[ __ ]';
+    document.getElementById(p+'-w-lbl').textContent = w;
+    document.getElementById(p+'-b-lbl').textContent = b;
+    document.getElementById(p+'-l-lbl').textContent = l;
+    document.getElementById(p+'-o-lbl').textContent = o;
+  }
+</script>
+</body>
+</html>
