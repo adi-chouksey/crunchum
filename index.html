@@ -34,30 +34,19 @@
   @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(40px,30px) scale(1.1)} }
 
   .logo-wrap { position:relative; z-index:2; animation:fadeDown 1s ease both; }
-  .logo-wrap img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 24px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
+  .logo-wrap img { width:180px; height:180px; object-fit:contain; border-radius:24px; display:block; margin:0 auto; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
 
   .tagline-badge { display:inline-block; margin-top:20px; padding:6px 20px;
     border:1px solid rgba(74,155,63,0.5); border-radius:100px;
     font-size:0.75rem; font-weight:600; letter-spacing:3px; text-transform:uppercase;
-    color:var(--green); background:rgba(74,155,63,0.08);
-    animation:fadeDown 1s 0.2s ease both; }
+    color:var(--green); background:rgba(74,155,63,0.08); animation:fadeDown 1s 0.2s ease both; }
 
   .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,7vw,6rem);
-    font-weight:900; line-height:1.1; margin-top:28px; position:relative; z-index:2;
-    animation:fadeDown 1s 0.4s ease both; }
+    font-weight:900; line-height:1.1; margin-top:28px; position:relative; z-index:2; animation:fadeDown 1s 0.4s ease both; }
   .hero h1 span { color:var(--gold); }
 
   .hero-sub { margin-top:20px; font-size:clamp(1rem,2.5vw,1.2rem); color:var(--text-light);
-    max-width:560px; line-height:1.75; font-weight:300; position:relative; z-index:2;
-    animation:fadeDown 1s 0.6s ease both; }
+    max-width:560px; line-height:1.75; font-weight:300; position:relative; z-index:2; animation:fadeDown 1s 0.6s ease both; }
 
   .hero-cta { margin-top:40px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
     position:relative; z-index:2; animation:fadeDown 1s 0.8s ease both; }
@@ -70,11 +59,6 @@
   .btn-outline { background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,0.3); }
   .btn-outline:hover { background:rgba(255,255,255,0.07); transform:translateY(-2px); }
 
-  .scroll-hint { position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
-    display:flex; flex-direction:column; align-items:center; gap:6px;
-    color:var(--text-light); font-size:0.7rem; letter-spacing:2px; text-transform:uppercase;
-    animation:fadeDown 1s 1.2s ease both; cursor:pointer; }
-  .scroll-hint .arrow { animation:bounce 2s infinite; }
   @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-24px)} to{opacity:1;transform:translateY(0)} }
 
@@ -105,17 +89,59 @@
   .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
   @media(max-width:900px){ .products-grid { grid-template-columns:repeat(2,1fr); } }
   @media(max-width:580px){ .products-grid { grid-template-columns:1fr; } }
+
   .product-card { background:var(--navy-light); border:1px solid rgba(74,155,63,0.15);
-    border-radius:20px; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; }
+    border-radius:20px; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; display:flex; flex-direction:column; }
   .product-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.3); border-color:rgba(74,155,63,0.4); }
-  .product-img { width:100%; height:220px; display:block; }
-  .product-info { padding:24px; }
-  .product-info h3 { font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:8px; }
-  .product-info p { font-size:0.85rem; color:var(--text-light); line-height:1.6; }
-  .coming-badge { display:inline-block; margin-top:14px; padding:4px 14px;
+
+  /* Product image banner */
+  .product-banner { width:100%; height:180px; display:flex; align-items:center; justify-content:center; font-size:72px; position:relative; overflow:hidden; }
+  .product-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 50%, var(--navy-light) 100%); }
+  .banner-bb { background:radial-gradient(ellipse at center, #2a1f4a 0%, #1e2f52 100%); }
+  .banner-sb { background:radial-gradient(ellipse at center, #4a1f2a 0%, #1e2f52 100%); }
+  .banner-ap { background:radial-gradient(ellipse at center, #3a2a1a 0%, #1e2f52 100%); }
+
+  .product-info { padding:22px 24px 24px; flex:1; display:flex; flex-direction:column; }
+  .product-info h3 { font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:6px; }
+  .product-info .product-nl { font-size:0.8rem; color:var(--green); font-style:italic; margin-bottom:12px; }
+  .product-info p { font-size:0.85rem; color:var(--text-light); line-height:1.65; flex:1; }
+
+  .product-tags { display:flex; flex-wrap:wrap; gap:6px; margin:14px 0; }
+  .tag { font-size:0.7rem; padding:3px 10px; border-radius:100px; font-weight:600; letter-spacing:0.5px; }
+  .tag-green { background:rgba(74,155,63,0.15); border:1px solid rgba(74,155,63,0.35); color:#7ec88a; }
+  .tag-gold  { background:rgba(240,165,0,0.12); border:1px solid rgba(240,165,0,0.35); color:#f0a500; }
+  .tag-blue  { background:rgba(100,150,255,0.12); border:1px solid rgba(100,150,255,0.3); color:#9ab8ff; }
+
+  .nutrition-mini { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px; padding:10px 14px; margin:12px 0; }
+  .nutrition-mini-title { font-size:0.68rem; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:8px; }
+  .nut-mini-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
+  .nut-mini-item { text-align:center; }
+  .nut-mini-val { font-size:0.9rem; font-weight:700; color:#fff; display:block; }
+  .nut-mini-label { font-size:0.62rem; color:rgba(255,255,255,0.45); display:block; margin-top:1px; }
+
+  .coming-badge { display:inline-block; margin-top:auto; padding:5px 16px;
     background:var(--green-light); border:1px solid rgba(74,155,63,0.45);
     border-radius:100px; font-size:0.72rem; color:var(--green);
-    letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+    letter-spacing:1.5px; text-transform:uppercase; font-weight:600; align-self:flex-start; }
+
+  /* COMING SOON PRODUCTS */
+  .coming-soon-section { padding:0 24px 80px; max-width:1200px; margin:0 auto; }
+  .coming-soon-section .section-label { text-align:left; }
+  .coming-soon-section .section-title { text-align:left; font-size:clamp(1.5rem,3vw,2rem); margin-bottom:24px; }
+  .coming-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media(max-width:640px){ .coming-grid { grid-template-columns:1fr; } }
+  .coming-card { background:var(--navy-light); border:1px solid rgba(255,255,255,0.07);
+    border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;
+    transition:border-color 0.3s; }
+  .coming-card:hover { border-color:rgba(74,155,63,0.3); }
+  .coming-card .icon { font-size:2rem; flex-shrink:0; }
+  .coming-card h4 { font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:4px; }
+  .coming-card p { font-size:0.78rem; color:var(--text-light); line-height:1.5; }
+  .soon-tag { display:inline-block; margin-top:6px; font-size:0.65rem; padding:2px 8px;
+    background:rgba(240,165,0,0.1); border:1px solid rgba(240,165,0,0.3);
+    border-radius:100px; color:var(--gold); letter-spacing:1px; text-transform:uppercase; font-weight:600; }
 
   /* WHY */
   .why { background:var(--navy-light); padding:100px 24px; }
@@ -204,17 +230,13 @@
   <div class="logo-wrap">
     <img src="https://iili.io/qKcgWcG.png" alt="Crunchum Foods Logo"/>
   </div>
-
   <div class="tagline-badge">Just Real Food.</div>
   <h1>Something <span>Extraordinary</span><br>Is Coming</h1>
   <p class="hero-sub">We're crafting the finest freeze-dried foods — pure, natural, and bursting with real flavour. No junk. No compromise. Just nature, preserved perfectly.</p>
-
   <div class="hero-cta">
     <a href="#contact" class="btn btn-green">Get Notified</a>
     <a href="#products" class="btn btn-outline">Sneak Peek ↓</a>
   </div>
-
-
 </section>
 
 <!-- FEATURES -->
@@ -227,69 +249,120 @@
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- PRODUCTS – LAUNCHING FIRST -->
 <section class="peek" id="products">
-  <p class="section-label">Sneak Peek</p>
-  <h2 class="section-title">What's Coming to Your Table</h2>
-  <p class="section-sub">A curated line of freeze-dried products that deliver real taste, real nutrition — nothing else.</p>
+  <p class="section-label">Launching First</p>
+  <h2 class="section-title">Our First Three Products</h2>
+  <p class="section-sub">Single-ingredient, 100% natural freeze-dried fruits. Just the fruit — nothing added, nothing removed except water.</p>
+
   <div class="products-grid">
 
+    <!-- BLUEBERRIES -->
     <div class="product-card">
-      <svg class="product-img" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="340" height="220" fill="#1e2f52"/>
-        <ellipse cx="120" cy="100" rx="45" ry="50" fill="#c0392b" opacity="0.9"/>
-        <path d="M120 55 Q130 48 126 60" stroke="#4a9b3f" stroke-width="3" fill="none"/>
-        <circle cx="110" cy="90" r="3" fill="#a93226"/><circle cx="130" cy="105" r="3" fill="#a93226"/><circle cx="115" cy="112" r="3" fill="#a93226"/>
-        <ellipse cx="230" cy="110" rx="40" ry="35" fill="#f0a500" opacity="0.9"/>
-        <path d="M200 100 Q230 75 260 100" fill="#e09400" opacity="0.7"/>
-        <circle cx="170" cy="150" r="14" fill="#6c5ce7" opacity="0.85"/>
-        <circle cx="195" cy="145" r="12" fill="#7d6ff0" opacity="0.85"/>
-        <circle cx="148" cy="148" r="11" fill="#5f4ddb" opacity="0.85"/>
-        <text x="170" y="205" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Inter,sans-serif" letter-spacing="3">FREEZE DRIED FRUITS</text>
-      </svg>
+      <div class="product-banner banner-bb">🫐</div>
       <div class="product-info">
-        <h3>Freeze Dried Fruits</h3>
-        <p>Intensely flavourful, crunchy bites of real fruit — strawberries, mangoes, blueberries and more, with all nutrients intact.</p>
+        <h3>Freeze-Dried Blueberries</h3>
+        <div class="product-nl">Vriesdroge Bosbessen</div>
+        <p>Intensely flavourful, crisp blueberry bites with all their natural antioxidants and goodness locked in. One ingredient. Pure blueberries — nothing more.</p>
+        <div class="product-tags">
+          <span class="tag tag-green">100% Natural</span>
+          <span class="tag tag-green">Vegan</span>
+          <span class="tag tag-gold">Gluten Free</span>
+          <span class="tag tag-blue">High Fibre</span>
+        </div>
+        <div class="nutrition-mini">
+          <div class="nutrition-mini-title">Nutrition per 100g</div>
+          <div class="nut-mini-grid">
+            <div class="nut-mini-item"><span class="nut-mini-val">357</span><span class="nut-mini-label">kcal</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">79.5g</span><span class="nut-mini-label">Carbs</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">3.9g</span><span class="nut-mini-label">Protein</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">14.1g</span><span class="nut-mini-label">Fibre</span></div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:10px;">Ingredient: Blueberries 100% · No preservatives · No added sugar · Allergen free</div>
         <span class="coming-badge">Coming Soon</span>
       </div>
     </div>
 
+    <!-- STRAWBERRIES -->
     <div class="product-card">
-      <svg class="product-img" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="340" height="220" fill="#1e2f52"/>
-        <rect x="90" y="80" width="20" height="60" rx="10" fill="#e74c3c" opacity="0.9"/>
-        <rect x="120" y="70" width="20" height="70" rx="10" fill="#f39c12" opacity="0.9"/>
-        <rect x="150" y="85" width="20" height="55" rx="10" fill="#f0a500" opacity="0.9"/>
-        <rect x="180" y="75" width="20" height="65" rx="10" fill="#4a9b3f" opacity="0.9"/>
-        <rect x="210" y="90" width="20" height="50" rx="10" fill="#8e44ad" opacity="0.85"/>
-        <text x="170" y="205" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Inter,sans-serif" letter-spacing="3">FREEZE DRIED VEGGIES</text>
-      </svg>
+      <div class="product-banner banner-sb">🍓</div>
       <div class="product-info">
-        <h3>Freeze Dried Vegetables</h3>
-        <p>Crisp, colourful, and packed with vitamins. Our veggies are picked at peak freshness and locked in at their best.</p>
+        <h3>Freeze-Dried Strawberries</h3>
+        <div class="product-nl">Vriesdroge Aardbeien</div>
+        <p>Bright, sweet, and beautifully crisp. Our freeze-dried strawberries deliver the full flavour of summer strawberries, preserved perfectly without a single additive.</p>
+        <div class="product-tags">
+          <span class="tag tag-green">100% Natural</span>
+          <span class="tag tag-green">Vegan</span>
+          <span class="tag tag-gold">Gluten Free</span>
+          <span class="tag tag-blue">High Protein</span>
+        </div>
+        <div class="nutrition-mini">
+          <div class="nutrition-mini-title">Nutrition per 100g</div>
+          <div class="nut-mini-grid">
+            <div class="nut-mini-item"><span class="nut-mini-val">325</span><span class="nut-mini-label">kcal</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">72.0g</span><span class="nut-mini-label">Carbs</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">5.4g</span><span class="nut-mini-label">Protein</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">13.0g</span><span class="nut-mini-label">Fibre</span></div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:10px;">Ingredient: Strawberries 100% · No preservatives · No added sugar · Allergen free</div>
         <span class="coming-badge">Coming Soon</span>
       </div>
     </div>
 
+    <!-- APPLES -->
     <div class="product-card">
-      <svg class="product-img" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="340" height="220" fill="#1e2f52"/>
-        <ellipse cx="170" cy="130" rx="80" ry="40" fill="#2c4070"/>
-        <ellipse cx="170" cy="120" rx="80" ry="35" fill="#344880"/>
-        <circle cx="140" cy="105" r="10" fill="#f0a500" opacity="0.9"/>
-        <circle cx="165" cy="98" r="8" fill="#c0392b" opacity="0.9"/>
-        <circle cx="188" cy="108" r="11" fill="#4a9b3f" opacity="0.9"/>
-        <circle cx="152" cy="118" r="7" fill="#f39c12" opacity="0.9"/>
-        <circle cx="178" cy="115" r="9" fill="#e74c3c" opacity="0.9"/>
-        <text x="170" y="205" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Inter,sans-serif" letter-spacing="3">PREMIUM SNACK MIX</text>
-      </svg>
+      <div class="product-banner banner-ap">🍎</div>
       <div class="product-info">
-        <h3>Premium Snack Mixes</h3>
-        <p>Thoughtfully crafted blends of freeze-dried fruits and snacks — perfect for on-the-go, guilt-free indulgence.</p>
+        <h3>Freeze-Dried Apples</h3>
+        <div class="product-nl">Vriesdroge Appels</div>
+        <p>Light, airy, and naturally sweet apple slices — seeds and core removed, then gently freeze-dried to crisp perfection. A timeless snack, pure and simple.</p>
+        <div class="product-tags">
+          <span class="tag tag-green">100% Natural</span>
+          <span class="tag tag-green">Vegan</span>
+          <span class="tag tag-gold">Gluten Free</span>
+          <span class="tag tag-blue">Low Fat</span>
+        </div>
+        <div class="nutrition-mini">
+          <div class="nutrition-mini-title">Nutrition per 100g</div>
+          <div class="nut-mini-grid">
+            <div class="nut-mini-item"><span class="nut-mini-val">337</span><span class="nut-mini-label">kcal</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">82.0g</span><span class="nut-mini-label">Carbs</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">1.1g</span><span class="nut-mini-label">Protein</span></div>
+            <div class="nut-mini-item"><span class="nut-mini-val">9.6g</span><span class="nut-mini-label">Fibre</span></div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:10px;">Ingredient: Apples 100% · No preservatives · No added sugar · Allergen free</div>
         <span class="coming-badge">Coming Soon</span>
       </div>
     </div>
 
+  </div>
+  <p style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);font-style:italic;margin-top:32px;">* Nutritional values sourced from USDA FoodData Central & RIVM NEVO Database. Indicative values pending authorised laboratory analysis.</p>
+</section>
+
+<!-- COMING SOON PRODUCTS -->
+<section class="coming-soon-section">
+  <p class="section-label">On the Horizon</p>
+  <h2 class="section-title">What's Coming Next</h2>
+  <div class="coming-grid">
+    <div class="coming-card">
+      <div class="icon">🥦</div>
+      <div>
+        <h4>Freeze-Dried Vegetables</h4>
+        <p>Crisp, colourful, and packed with vitamins. Picked at peak freshness and locked in at their best.</p>
+        <span class="soon-tag">Coming Soon</span>
+      </div>
+    </div>
+    <div class="coming-card">
+      <div class="icon">🥗</div>
+      <div>
+        <h4>Premium Snack Mixes</h4>
+        <p>Thoughtfully crafted blends of freeze-dried fruits — perfect for on-the-go, guilt-free indulgence.</p>
+        <span class="soon-tag">Coming Soon</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -301,8 +374,8 @@
     <p class="section-sub">We built Crunchum because real food shouldn't have a long ingredients list you can't pronounce.</p>
     <div class="why-grid">
       <div class="why-card"><div class="why-icon">🔬</div><h4>Science of Freshness</h4><p>Freeze drying removes moisture without heat, preserving up to 97% of nutrients and the full natural flavour.</p></div>
-      <div class="why-card"><div class="why-icon">🌍</div><h4>Responsibly Sourced</h4><p>We partner with trusted farms who share our commitment to quality, sustainability, and honest food production.</p></div>
-      <div class="why-card"><div class="why-icon">🏆</div><h4>Premium Standards</h4><p>Every batch is carefully handled, tested, and packaged to meet the highest quality standards.</p></div>
+      <div class="why-card"><div class="why-icon">🌍</div><h4>Responsibly Sourced</h4><p>We partner with trusted suppliers who share our commitment to quality, sustainability, and honest food production.</p></div>
+      <div class="why-card"><div class="why-icon">🏆</div><h4>Premium Standards</h4><p>Every batch is carefully handled, tested, and packaged to meet the highest EU food safety standards.</p></div>
       <div class="why-card"><div class="why-icon">💚</div><h4>Clean Label Always</h4><p>If you can't read the ingredient, it shouldn't be in your food. Simple as nature intended — nothing more.</p></div>
     </div>
   </div>
@@ -340,10 +413,11 @@
           <label>I'm Interested In</label>
           <select name="interest">
             <option value="">Select a category...</option>
-            <option>Freeze Dried Fruits</option>
-            <option>Freeze Dried Vegetables</option>
-            <option>Premium Snack Mixes</option>
-            <option>All Products</option>
+            <option>Freeze Dried Blueberries</option>
+            <option>Freeze Dried Strawberries</option>
+            <option>Freeze Dried Apples</option>
+            <option>All Current Products</option>
+            <option>Future Products (Vegetables, Snack Mixes)</option>
             <option>Wholesale / Business Enquiry</option>
           </select>
         </div>
@@ -368,7 +442,7 @@
   <div class="footer-logo-wrap">
     <img src="https://iili.io/qKcgWcG.png" alt="Crunchum Foods Logo"/>
   </div>
-  <p class="footer-tagline">✦ Just Real Food. ✦</p>
+  <p class="footer-tagline">✦ No Preservatives. No Compromise. ✦</p>
   <div class="footer-links">
     <a href="#products">Products</a>
     <a href="#contact">Contact</a>
@@ -378,7 +452,7 @@
   <div class="footer-divider"></div>
   <p class="copy">
     <span class="green-dot"></span>Launching Soon &nbsp;·&nbsp;
-    © 2025 Crunchum Foods &nbsp;·&nbsp;
+    © 2026 Crunchum Foods VOF &nbsp;·&nbsp; KVK: 99699001 &nbsp;·&nbsp;
     <a href="mailto:support@crunchum.nl">support@crunchum.nl</a>
   </p>
 </footer>
