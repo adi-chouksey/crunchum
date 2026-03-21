@@ -689,51 +689,47 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  // Sample request form → Formspree
+  document.getElementById('sampleForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const fd = new FormData(e.target);
-    const name = fd.get('firstName') + ' ' + fd.get('lastName');
-    const email = fd.get('email');
-    const interest = fd.get('interest') || 'Not specified';
-    const msg = fd.get('message') || 'No message.';
-    const sub = encodeURIComponent('New Contact: Crunchum Foods – ' + name);
-    const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nInterest: '+interest+'\n\nMessage:\n'+msg);
-    window.location.href = 'mailto:support@crunchum.nl?subject='+sub+'&body='+body;
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
+    const fd = new FormData(this);
+    const res = await fetch('https://formspree.io/f/myknapvn', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('sampleForm').style.display = 'none';
+      document.getElementById('sampleSuccess').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again or email support@crunchum.nl');
+    }
+  });
+
+  // Contact / Stay Connected form → Formspree
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    const res = await fetch('https://formspree.io/f/myknapvn', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again or email support@crunchum.nl');
+    }
+  });
+
+  // Smooth scroll (keep as-is)
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
     });
   });
-
- function handleSampleSubmit(e) {
-  e.preventDefault();
-  const fd = new FormData(e.target);
-  const name     = fd.get('sFirstName') + ' ' + fd.get('sLastName');
-  const email    = fd.get('sEmail');
-  const address  = fd.get('sAddress');
-  const product  = fd.get('sProduct');
-  const useCase  = fd.get('sUseCase') || 'Not specified';
-
-  const subject = encodeURIComponent('Free Sample Request – ' + name);
-  const body    = encodeURIComponent(
-    'FREE SAMPLE REQUEST\n' +
-    '===================\n' +
-    'Name:     ' + name    + '\n' +
-    'Email:    ' + email   + '\n' +
-    'Address:  ' + address + '\n' +
-    'Product:  ' + product + '\n' +
-    'Use case: ' + useCase + '\n'
-  );
-
-  window.location.href = 'mailto:support@crunchum.nl?subject=' + subject + '&body=' + body;
-
-  document.getElementById('sampleForm').style.display    = 'none';
-  document.getElementById('sampleSuccess').style.display = 'block';
-}
 </script>
 </body>
 </html>
