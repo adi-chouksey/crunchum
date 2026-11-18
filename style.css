@@ -105,7 +105,8 @@ section.alt{background:var(--bg-alt)}
 
 /* next */
 .next{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:0 auto}
-.next div{background:var(--bg-sage);border-radius:var(--radius);padding:26px;display:flex;gap:16px}
+.next>div{background:var(--bg-sage);border-radius:var(--radius);padding:26px;display:flex;gap:16px;align-items:flex-start}
+.next .tags{display:flex}
 .next .ic{font-size:2rem}
 .next h3{font-size:1.15rem;margin-bottom:4px}
 .next p{font-size:.9rem;color:var(--muted)}

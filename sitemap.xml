@@ -29,18 +29,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/collections/all"/>
   </url>
   <url>
-    <loc>https://crunchum.nl/products/freeze-dried-fruits-blueberry</loc>
+    <loc>https://crunchum.nl/products/freeze-dried-fruits-mango-slices</loc>
     <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-mango-slices"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-mango-slices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-mango-slices"/>
   </url>
   <url>
-    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry</loc>
+    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-mango-slices</loc>
     <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-mango-slices"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-mango-slices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-mango-slices"/>
   </url>
   <url>
     <loc>https://crunchum.nl/products/freeze-dried-fruits-strawberry-slices</loc>
@@ -57,18 +57,60 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-strawberry-slices"/>
   </url>
   <url>
-    <loc>https://crunchum.nl/products/freeze-dried-fruits-apple</loc>
+    <loc>https://crunchum.nl/products/freeze-dried-fruits-blueberry</loc>
     <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-apple"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-apple"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-apple"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
   </url>
   <url>
-    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-apple</loc>
+    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry</loc>
     <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-apple"/>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-apple"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-apple"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-blueberry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-blueberry"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/products/freeze-dried-fruits-mango-cubes</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-mango-cubes"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-mango-cubes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-mango-cubes"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-mango-cubes</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-mango-cubes"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-mango-cubes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-mango-cubes"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/products/freeze-dried-fruits-chikoo-cubes</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-chikoo-cubes"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-chikoo-cubes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-chikoo-cubes"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-chikoo-cubes</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-chikoo-cubes"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-chikoo-cubes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-chikoo-cubes"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/products/freeze-dried-fruits-jamun</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-jamun"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-jamun"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-jamun"/>
+  </url>
+  <url>
+    <loc>https://crunchum.nl/nl/products/freeze-dried-fruits-jamun</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crunchum.nl/products/freeze-dried-fruits-jamun"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://crunchum.nl/nl/products/freeze-dried-fruits-jamun"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crunchum.nl/products/freeze-dried-fruits-jamun"/>
   </url>
   <url>
     <loc>https://crunchum.nl/pages/how-its-made</loc>
