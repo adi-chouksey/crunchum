@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /Product%20Label.html
+Disallow: /Product%20Specification.HTML
+Disallow: /urls.txt
+
+Sitemap: https://crunchum.nl/sitemap.xml
