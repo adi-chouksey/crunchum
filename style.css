@@ -182,3 +182,4 @@ table.nutri caption{text-align:left;font-weight:600;color:var(--green);font-fami
 .prose p,.prose li{color:#3d3d3a;margin-bottom:12px}
 .prose ul{padding-left:20px}
 @media(max-width:860px){.pdp{grid-template-columns:1fr;gap:28px}}
+.faq summary h3.q{font:inherit;color:inherit;margin:0;display:inline}
