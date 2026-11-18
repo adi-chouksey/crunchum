@@ -183,3 +183,10 @@ table.nutri caption{text-align:left;font-weight:600;color:var(--green);font-fami
 .prose ul{padding-left:20px}
 @media(max-width:860px){.pdp{grid-template-columns:1fr;gap:28px}}
 .faq summary h3.q{font:inherit;color:inherit;margin:0;display:inline}
+.video{margin:22px 0 30px}
+.video .yt,.video iframe{display:block;position:relative;width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radius);overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(26,26,26,.12)}
+.video .yt img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.video .yt:hover img{transform:scale(1.02)}
+.yt-play{position:absolute;left:50%;top:50%;width:76px;height:54px;margin:-27px 0 0 -38px;background:#E5622E;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.yt-play::after{content:'';position:absolute;left:31px;top:16px;border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff}
+.video figcaption{font-size:.85rem;color:var(--muted);margin-top:10px}
